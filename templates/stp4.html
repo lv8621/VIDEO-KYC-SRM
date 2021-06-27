@@ -68,45 +68,64 @@
             min-width: 830px;
             /*background-color: white !important;*/
         }
+        
+        .form-signin {
+            padding: 5px;
+        }
+        
+        #user_uid,
+        #user_name {
+            width: 400px;
+            padding: 5px 10px;
+        }
+        
+        .buttonG {
+            padding: 15px 40px;
+        }
     </style>
 </head>
 
 <body>
     <section class="multi_step_form">
-        <form id="msform">
+        <div id="msform">
             <!-- Tittle -->
             <div class="tittle" style="font-family: 'Charm'; ">
                 <h1><b>KYC Verification Process</b></h1>
 
             </div>
             <div class="container">
+                <h2><strong> QR-Code Cross Verification</strong></h2>
 
-                <form action="app.py/scanqr" method="POST">
+                <form class="form-signin" action="/scan-qr" method="POST">
                     <div class="form-group">
                         <div class="custom-file">
-                            <br><br>
+                            <br>
                             <div>
 
                                 <b>Enter Aadhaar Number : </b>
-                                <br>
+                                <br><br>
                                 <input type="text" name="user_uid" id="user_uid" />
                                 <br><br>
                                 <b>Enter Full Name (As in Aadhaar Card) : </b>
-                                <br>
+                                <br><br>
                                 <input type="text" name="user_name" id="user_name" />
                                 <br>
                             </div>
                         </div>
                     </div>
-                    <br>
-                    <button type="submit" class="buttonG">VERIFY</button>
                     <br><br>
+                    <button type="submit" class="buttonG">VERIFY</button>
+                    <br>
                 </form>
-                <br><br>
+
             </div>
+            <hr>
+            <div class="done_text">
+                <span><i class="fas fa-circle"></i><i class="fas fa-circle"></i><i class="fas fa-circle"></i><i class="fas fa-circle"></i><i class="fas fa-circle"></i></span>
+            </div>
+            <br>
 
-
-        </form>
+        </div>
     </section>
     <!-- End Multi step form -->
     <script src="./app.js"></script>
