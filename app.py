@@ -363,8 +363,8 @@ def compare(dirname):
 
 
 #---------------------QRCODE-----------------------------
-@app.route('/scanqr',methods=['GET','POST'])  
-def scanqr():
+@app.route('/scan-qr',methods=['GET','POST'])  
+def scan_qr():
     print("HELLOO")
     f=open(app.config["IMAGE_UPLOADS"]+'dirname.txt','r')
     dirname=f.read()
@@ -378,8 +378,8 @@ def scanqr():
     print("\n1\n")
     for i in code:
         dat=dat+i.data.decode("utf-8")
-        print(i.data.decode("utf-8"))
-    print("\n2\n")
+        #print(i.data.decode("utf-8"))
+    #print("\n2\n")
     print(dat)
     print("\n\n")
     uid=''
@@ -395,11 +395,11 @@ def scanqr():
     if uid1==uid:
         if name1==name:
             print("\nQR CODE Verifed\n")
-            return render_template('stp5.html',result=True)
+            return render_template('stp5.html',result=True,fname=current_user.fname,lname=current_user.lname)
     else:
         print("\nQR CODE VERIFICATION NOT SUCCESSFULL\n")
     # return redirect(url_for('endpage'))
-    return render_template('stp5.html',result=False)
+    return render_template('stp5.html',result=False,fname=current_user.fname,lname=current_user.lname)
 
 #================RUN===============================================================================    
 
